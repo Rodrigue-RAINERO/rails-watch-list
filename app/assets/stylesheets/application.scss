@@ -1,0 +1,206 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap";
+@import "font-awesome";
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+
+.poster-img {
+  width: 45vh;
+  height: 60vh;
+}
+
+.carousel {
+background-color: #faeed1bd;}
+
+body {
+  background-image: url("Body-font2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.list-group-item {
+  text-align: center;
+}
+
+.carousel-indicators {
+  background-color: #bbab8cc4;
+  width: 150px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  position: absolute;
+  bottom: -2px;
+  left: 31%;
+}
+
+.carousel-indicators .active {
+  color: white;
+}
+
+.movie-card-text {
+  background-color: #ded0b6b0;
+  padding: 20px;
+  text-shadow: 0.3px 0.3px 0.3px black;
+
+}
+
+.head-movies {
+  background-color: #ded0b6b0;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 35px;
+  text-shadow: 0.3px 0.3px 0.3px black;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-color: #BBAB8C;
+  padding: 40px;
+  border-radius: 50%;
+}
+
+.banner-list {
+  background-image: url("Banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 8vh;
+}
+
+.btn-add-movie {
+  height: 8vh;
+  font-weight: 600;
+  position: absolute;
+  padding: 25px;
+  top: 10vh;
+  right: 2vh;
+  z-index: 999;
+  border-radius: 15px;
+  font-size: 16px;
+  transition: 1s ease;
+}
+
+.btn-home {
+    height: 8vh;
+    font-weight: 600;
+    position: absolute;
+    padding: 25px;
+    top: 10vh;
+    right: 2vh;
+    z-index: 999;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: 1s ease;
+}
+
+.btn-home:hover, .btn-add-movie:hover, .btn-edit-show:hover, .btn-submit-new:hover,
+.btn-see-more:hover {
+  background-color: #a19274;
+  color: white;
+  border-color: #a19274;
+  text-shadow:
+    1px 1px 2px black,
+    0 0 1em rgba(0, 0, 0, 0.306),
+    0 0 0.2em rgba(0, 0, 0, 0.282);
+}
+
+.div-btn-add {
+  height: 8vh;
+}
+
+.big-box-new-movie {
+  color: rgb(0, 0, 0);
+  width: 500px;
+  margin-top: 150px;
+  background-color: #faeed1bd;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.big-box-show-movie {
+  color: rgb(0, 0, 0);
+  width: 500px;
+  margin-top: 50px;
+  background-color: #faeed1bd;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.big-box-show-movie h1 {
+  text-align: center;
+  text-shadow: 0.3px 0.3px 0.3px black;
+  font-weight: 600;
+}
+
+.card-show-movie {
+  padding-top: 10px;
+  text-align: center;
+  text-shadow: 0.3px 0.3px 0.3px black;
+}
+
+.card-show-movie-text {
+  padding-top: 10px;
+}
+
+.big-box-new-movie h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.btn-submit-new {
+  margin-left: 175px;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-top: 15px;
+  transition: 1s ease;
+}
+
+.delete {
+  text-decoration: none;
+  background-color: #bbab8cd9;
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+  transition: 1s ease;
+  border-radius: 15px;
+  text-shadow:
+    1px 1px 2px black,
+    0 0 1em rgba(0, 0, 0, 0.306),
+    0 0 0.2em rgba(0, 0, 0, 0.282);
+}
+
+.delete:hover {
+  background-color: #a19274;
+}
+
+.btn-see-more, .btn-edit-show {
+  padding: 10px 35px;
+  margin-right: 10px;
+  background-color: #1EDD88;
+  color: black;
+  font-size: 18px;
+  transition: 1s ease;
+  text-decoration: none;
+  border-radius: 15px;
+  font-weight: 500;
+  text-shadow: 0.3px 0.3px 0.3px black;
+}
+
+.btn-see-more {
+  padding: 10px 15px;
+}
+
+.delete {
+  padding: 10px 25px;
+}
+
+.fa-star {
+  text-shadow: 1px 1px 6px black;
+}

@@ -1,0 +1,41 @@
+<div class="div-btn-add">
+  <%= link_to 'Add a movie', new_movie_path(@movie), class: "btn btn-success btn-add-movie"  %>
+</div>
+<div id="movieCarousel" class="carousel slide">
+  <div class="carousel-inner">
+    <% @movies.each_with_index do |movie, index| %>
+      <div class="carousel-item <%= 'active' if index == 0 %>">
+        <div class="head-movies">
+          <h4><strong><%= movie.title %> • <%= movie.rating %> <i class="fa-solid fa-star fa-fade" style="color: #fff700;"></i></strong></h4>
+        </div>
+        <div class="list-group-item">
+          <%= image_tag movie.poster_url, class: "poster-img" %>
+          <div class="movie-card-text">
+            <p class="overflow-ellipsis"><%= movie.overview %></p>
+            <div class="show-delete">
+              <%= link_to "See more", movie_path(movie), class: "btn-see-more" %>
+              <%= link_to "Delete",
+                          movie_path(movie),
+                          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <!-- Carousel Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#movieCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#movieCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- Carousel Indicators -->
+<div class="carousel-indicators">
+  <% @movies.each_with_index do |_, index| %>
+    <button type="button" data-bs-target="#movieCarousel" data-bs-slide-to="<%= index %>" class="<%= 'active' if index == @current_carousel_position %>"></button>
+  <% end %>
+</div>
