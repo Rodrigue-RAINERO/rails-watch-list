@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
-
-  @current_carousel_position = 0
+  before_action :set_current_carousel_position, only: [:index]
 
   def index
     @movies = Movie.all
@@ -41,7 +40,17 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def update_carousel_position
+    session[:current_carousel_position] = params[:position].to_i
+    head :ok
+  end
+
   private
+
+  def set_current_carousel_position
+    session[:current_carousel_position] ||= 0
+    @current_carousel_position = session[:current_carousel_position].to_i
+  end
 
   def movie_params
     params.require(:movie).permit(:title, :overview, :poster_url, :rating)

@@ -1,12 +1,20 @@
+<div class="div-head-movies"></div>
 <div class="div-btn-add">
+  <button id="showCarouselBtn" class="btn btn-success btn-home"><i class="fa-solid fa-arrows-left-right"></i></button>
+  <%= link_to movies_path, class: "btn btn-success btn-fa-list" do %>
+    <i class="fa-solid fa-list"></i>
+  <% end %>
+  <%= link_to 'My lists', lists_path, class: "btn btn-success btn-my-list"%>
   <%= link_to 'Add a movie', new_movie_path(@movie), class: "btn btn-success btn-add-movie"  %>
 </div>
+<!-- Carousel -->
 <div id="movieCarousel" class="carousel slide">
   <div class="carousel-inner">
     <% @movies.each_with_index do |movie, index| %>
       <div class="carousel-item <%= 'active' if index == 0 %>">
         <div class="head-movies">
-          <h4><strong><%= movie.title %> • <%= movie.rating %> <i class="fa-solid fa-star fa-fade" style="color: #fff700;"></i></strong></h4>
+          <h4><strong>• <%= movie.title %> •<br>
+              <%= movie.rating %> <i class="fa-solid fa-star fa-fade" style="color: #fff700;"></i></strong></h4>
         </div>
         <div class="list-group-item">
           <%= image_tag movie.poster_url, class: "poster-img" %>
@@ -33,9 +41,74 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+<!-- Grille de films -->
+<div id="moviesGrid" class="" style="display: none;">
+  <div class="row row-cols-1 row-cols-md-3 g-3 justify-content-center">
+    <% @movies.each_with_index do |movie, index| %>
+      <!-- Contenu de chaque élément de la grille -->
+      <!-- ... -->
+      <div class="big-box-list-movie col">
+        <div class="">
+          <h4><strong>• <%= movie.title %> •<br>
+              <%= movie.rating %> <i class="fa-solid fa-star fa-fade" style="color: #fff700;"></i></strong></h4>
+          <div class="">
+            <%= image_tag movie.poster_url, class: "poster-img-grid" %>
+            <div class="">
+              <p class="overflow-ellipsis"><%= movie.overview %></p>
+              <div class="show-delete">
+                <%= link_to "See more", movie_path(movie), class: "btn-see-more" %>
+                <%= link_to "Delete",
+                          movie_path(movie),
+                          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 <!-- Carousel Indicators -->
 <div class="carousel-indicators">
   <% @movies.each_with_index do |_, index| %>
     <button type="button" data-bs-target="#movieCarousel" data-bs-slide-to="<%= index %>" class="<%= 'active' if index == @current_carousel_position %>"></button>
   <% end %>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const carousel = document.getElementById('movieCarousel');
+  const moviesGrid = document.getElementById('moviesGrid');
+  const homeButton = document.querySelector('.btn-fa-list');
+  const showCarouselBtn = document.getElementById('showCarouselBtn');
+  const carouselIndicator = document.querySelector('.carousel-indicators');
+
+  // Masquer le carousel et afficher la grille
+  function showMoviesGrid() {
+    carousel.style.display = 'none';
+    moviesGrid.style.display = '';
+    carouselIndicator.style.display = 'none'
+  }
+
+  // Masquer la grille et afficher le carousel
+  function showCarousel() {
+    carousel.style.display = 'block';
+    moviesGrid.style.display = 'none';
+    location.reload();
+  }
+
+  // Gérer le clic sur le bouton "Home"
+  homeButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    showMoviesGrid();
+  });
+
+  // Gérer le clic sur le bouton "Show Carousel"
+  showCarouselBtn.addEventListener('click', function (event) {
+    event.preventDefault();
+    showCarousel();
+  });
+
+  // Vous pouvez également ajouter une fonction pour afficher le carousel au chargement initial de la page
+  // showCarousel();
+  });
+</script>

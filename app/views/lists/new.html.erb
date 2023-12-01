@@ -1,15 +1,17 @@
-<div class="banner" style="background-image: url(https://images.unsplash.com/photo-1578674473215-9e07ee2e577d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQ4fHxtb3ZpZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60)">
-  <div class="container">
+<div class="row d-flex justify-content-center mx-0">
+  <div class="big-box-new-movie-reate col-8">
+    <div class="new-lists">
+      <div class="new-list">
+        <h1>Create a new <strong>list</strong> !</h1>
+        <%= simple_form_for(@list) do |f| %>
+          <%= f.input :name, input_html: {class: "text-list-new-movie"} %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit "Submit", class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-
-<div class="new-lists">
-  <div class="new-list">
-    <h1>Create a new <strong>list</strong> !</h1>
-    <%= simple_form_for(@list) do |f| %>
-      <%= f.input :name %>
-      <%= f.input :photo, as: :file %>
-      <%= f.submit "Submit", class: "btn btn-success" %>
-    <% end %>
-  </div>
+<div class="div-btn-home">
+  <%= link_to "Home", movies_path, class: "btn btn-success btn-home" %>
 </div>

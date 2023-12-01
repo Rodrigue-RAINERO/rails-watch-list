@@ -1,17 +1,19 @@
 <div class="row d-flex justify-content-center mx-0">
   <div class="big-box-show-movie col-8">
-    <h1><%= @movie.title %> • <%= @movie.rating %> <i class="fa-solid fa-star fa-fade" style="color: #fff700;"></i></strong></h1>
-    <div class="card-show-movie">
-      <%= image_tag @movie.poster_url, class:"poster-img" %>
-      <div class="card-show-movie-text">
-        <p><%= @movie.overview %></p>
-        <div class="d-flex justify-content-center">
-          <%= link_to 'Edit', edit_movie_path(@movie), class: "btn-edit-show"  %>
-          <%= link_to "Delete",
+    <h1>• <%= @movie.title %> •<br><%= @movie.rating %> <i class="fa-solid fa-star fa-fade" style="color: #fff700;"></i></strong></h1>
+  <div class="card-show-movie">
+    <%= image_tag @movie.poster_url, class:"poster-img" %>
+    <div class="card-show-movie-text">
+      <p><%= @movie.overview %></p>
+      <div class="d-flex justify-content-center">
+        <%= link_to 'Edit', edit_movie_path(@movie), class: "btn-edit-show"  %>
+        <%= link_to "Delete",
       movie_path(@movie),
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete" %></div>
-      </div>
     </div>
   </div>
 </div>
-<%= link_to "Home", movies_path, class: "btn btn-success btn-home" %>
+</div>
+<div class="div-btn-home">
+  <%= link_to "Home", movies_path, class: "btn btn-success btn-home" %>
+</div>

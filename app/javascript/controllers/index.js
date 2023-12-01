@@ -10,15 +10,30 @@ eagerLoadControllersFrom("controllers", application)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 // lazyLoadControllersFrom("controllers", application)
 
-const myCarouselElement = document.querySelector('#movieCarousel');
-const carousel = new bootstrap.Carousel(myCarouselElement, {
-  interval: 2000,
-  touch: false
-});
+$(document).ready(function() {
+  const myCarouselElement = document.querySelector('#movieCarousel');
+  const carousel = new bootstrap.Carousel(myCarouselElement, {
+    interval: 2000,
+    touch: false
+  });
 
-const myCarousel = document.getElementById('movieCarousel');
+  const myCarousel = document.getElementById('movieCarousel');
 
-myCarousel.addEventListener('slide.bs.carousel', event => {
-  // do something...
-  current_carousel_position = event.to;
+  myCarousel.addEventListener('slide.bs.carousel', event => {
+    // do something...
+    const newIndex = event.to;
+
+    // Envoyer la nouvelle position au serveur via AJAX
+    $.ajax({
+      type: 'POST',
+      url: '/update_carousel_position',
+      data: { position: newIndex },
+      success: function(response) {
+        console.log('Carousel position updated successfully.');
+      },
+      error: function(error) {
+        console.error('Error updating carousel position:', error);
+      }
+    });
+  });
 });
