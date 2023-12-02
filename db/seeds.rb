@@ -17,11 +17,23 @@ Movie.create(title: "The Shawshank Redemption", overview: "Framed in the 1940s f
 Movie.create(title: "Titanic", overview: "101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic.", poster_url: "https://image.tmdb.org/t/p/original/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg", rating: 7.9)
 Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century.", poster_url: "https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg", rating: 7.0)
 
+require 'faker'
+require 'open-uri'
 
-require "open-uri"
+puts "Creating new files"
 
-List.destroy_all
-file = URI.open('https://images.unsplash.com/photo-1592724217096-618c2d580826?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZHJhbWF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')
-list = List.new(name: 'Drama')
-# list.photo.attach(io: file, filename: 'drama.png', content_type: 'image/png')
-list.save
+# Génération de 10 films avec des données aléatoires
+10.times do
+  # Générer une instance du modèle Movie avec l'URL de l'image
+  movie = Movie.new(
+    title: Faker::Movie.title,
+    overview: Faker::Movie.quote,
+    poster_url: Faker::Internet.url,
+    rating: Faker::Number.decimal(l_digits: 1, r_digits: 1),
+  )
+
+  # Enregistrer l'instance du modèle en base de données
+  movie.save
+end
+
+puts "Seeds created successfully"

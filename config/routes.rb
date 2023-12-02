@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :bookmarks, only: [:new, :create]
   end
   resources :bookmarks, only: [:destroy]
-  resources :movies, only: [:index, :index2, :show, :new, :create, :edit, :update, :destroy]
+  resources :movies, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   post '/update_carousel_position', to: 'movies#update_carousel_position'
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
