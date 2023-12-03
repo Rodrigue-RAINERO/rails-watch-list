@@ -122,6 +122,7 @@ body {
 }
 
 .btn-home:hover,
+.btn-submit-new-list:hover,
 .btn-add-movie:hover,
 .btn-my-list:hover,
 .btn-edit-show:hover,
@@ -186,10 +187,13 @@ body {
   padding-bottom: 15px;
 }
 
-.big-box-edit-movie,
 .big-box-lists-movie,
 .big-box-list-movie {
   height: 570px;
+  margin-top: 175px;
+}
+
+.big-box-edit-movie {
   margin-top: 175px;
 }
 
@@ -313,6 +317,11 @@ body {
   border-radius: 15px;
   font-weight: 500;
   text-shadow: 0.3px 0.3px 0.3px black;
+}
+
+.btn-new-bookmark {
+  margin-left: 170px;
+  margin-top: 20px;
 }
 
 .btn-see-more {
