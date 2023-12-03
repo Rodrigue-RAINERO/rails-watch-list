@@ -1,4 +1,3 @@
-// movies.js
 document.addEventListener('turbo:load', function () {
   const carouselGrid = document.getElementById('movieCarousel');
   const moviesGrid = document.getElementById('moviesGrid');
@@ -9,7 +8,9 @@ document.addEventListener('turbo:load', function () {
   function showMoviesGrid() {
     carouselGrid.style.display = 'none';
     moviesGrid.style.display = '';
-    carouselIndicator.style.display = 'none';
+    if (carouselIndicator) {
+      carouselIndicator.style.display = 'none';
+    }
   }
 
   function showCarousel() {
@@ -18,13 +19,17 @@ document.addEventListener('turbo:load', function () {
     carouselIndicator.style.display = '';
   }
 
-  gridButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    showMoviesGrid();
-  });
+  if (gridButton) {
+    gridButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      showMoviesGrid();
+    });
+  }
 
-  showCarouselBtn.addEventListener('click', function (event) {
-    event.preventDefault();
-    showCarousel();
-  });
+  if (showCarouselBtn) {
+    showCarouselBtn.addEventListener('click', function (event) {
+      event.preventDefault();
+      showCarousel();
+    });
+  }
 });

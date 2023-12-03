@@ -5,7 +5,7 @@
     <%= image_tag @movie.poster_url, class:"poster-img" %>
     <div class="card-show-movie-text">
       <p><%= @movie.overview %></p>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center div-btn-edit-delete">
         <%= link_to 'Edit', edit_movie_path(@movie), class: "btn-edit-show"  %>
         <%= link_to "Delete",
       movie_path(@movie),

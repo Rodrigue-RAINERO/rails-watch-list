@@ -1,3 +1,9 @@
-<div class="list-card">
-  <h2><strong><%= link_to list.name, list_path(list), class: "link-list" %></strong></h2>
+<div class="d-flex justify-content-center list-card-my-lists">
+  <div class="d-flex justify-content-between div-link-list">
+    <p>•</p>
+    <h2><strong><%= link_to list.name, list_path(list), class: "link-list" %></strong></h2>
+    <%= link_to list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-trash-list" do %>
+      <i class="fa-solid fa-trash"></i>
+    <% end %>
+  </div>
 </div>

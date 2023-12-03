@@ -29,7 +29,10 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @list.destroy
 
-    redirect_to lists_path
+    respond_to do |format|
+      format.html { redirect_to lists_path }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace('list_' + @list.id.to_s, partial: 'lists/list', locals: { list: @list }) }
+    end
   end
 
   private

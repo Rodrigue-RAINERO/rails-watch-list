@@ -12,8 +12,8 @@
 @import "pages/index";
 
 .poster-img {
-  width: 45vh;
-  height: 60vh;
+  width: 40vh;
+  height: 55vh;
 }
 
 .carousel {
@@ -34,13 +34,14 @@ body {
 }
 
 .carousel-indicators {
-  background-color: #bbab8cc4;
-  width: 150px;
+  background-color: #8484844c;
+  backdrop-filter: blur(5px);
+  width: 250px;
   padding: 10px 20px;
   border-radius: 15px;
   position: absolute;
   bottom: -2px;
-  left: 31.3%;
+  left: 28.6%;
 }
 
 .carousel-indicators .active {
@@ -56,7 +57,7 @@ body {
   padding-bottom: 30px;
 }
 
-.head-movies {
+.head-movies, .head-bookmarks {
   color: white;
   background-color: #84848431;
   backdrop-filter: blur(5px);
@@ -64,6 +65,10 @@ body {
   padding-top: 35px;
   padding-bottom: 10px;
   text-shadow: 0.3px 0.3px 0.3px black;
+}
+
+.head-bookmarks {
+  background-color: #84848452;
 }
 
 .carousel-control-prev-icon,
@@ -97,13 +102,14 @@ body {
   z-index: 999;
 }
 
-.btn-home, .btn-fa-list, .btn-show-carousel {
+.btn-home,
+.btn-fa-list,
+.btn-show-carousel {
   height: 8vh;
   font-weight: 600;
   padding: 25px;
   border-radius: 15px;
   font-size: 16px;
-  margin-left: 5px;
   transition: 1s ease;
 }
 
@@ -111,7 +117,7 @@ body {
   margin-left: 0;
 }
 
-.btn-fa-list:hover + i {
+.btn-fa-list:hover+i {
   color: white;
 }
 
@@ -136,7 +142,11 @@ body {
   height: 7.5vh;
 }
 
-.big-box-new-movie, .big-box-show-movie, .big-box-new-movie-reate, .big-box-edit-movie, .big-box-lists-movie {
+.big-box-new-movie,
+.big-box-show-movie,
+.big-box-new-movie-reate,
+.big-box-edit-movie,
+.big-box-lists-movie {
   color: rgb(255, 255, 255);
   width: 550px;
   height: 835px;
@@ -154,20 +164,29 @@ body {
   backdrop-filter: blur(5px);
   padding: 30px;
   border-radius: 15px;
-  height: 400px;
-  width: 500px;
+  width: 450px;
   margin-top: 175px;
   margin-bottom: 50px;
   margin-left: 50px;
   margin-right: 50px;
 }
 
-.big-box-new-movie-reate, .big-box-edit-movie, .big-box-lists-movie, .big-box-list-movie {
+.big-box-list-movie h4 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.big-box-new-movie-reate,
+.big-box-edit-movie,
+.big-box-lists-movie,
+.big-box-list-movie {
   height: 570px;
   margin-top: 175px;
 }
 
-.big-box-new-movie-reate h1,.big-box-edit-movie h1, .big-box-lists-movie {
+.big-box-new-movie-reate h1,
+.big-box-edit-movie h1,
+.big-box-lists-movie {
   text-align: center;
   padding-bottom: 20px;
 }
@@ -193,7 +212,8 @@ body {
   margin-bottom: 30px;
 }
 
-.btn-submit-new, .bnt-new-list {
+.btn-submit-new,
+.bnt-new-list {
   margin-left: 185px;
   padding: 10px 20px;
   font-weight: 600;
@@ -209,19 +229,55 @@ body {
   right: 196px;
 }
 
+.div-btn-edit-delete {
+  position: absolute;
+  left: 166px;
+  bottom: 40px;
+}
+
 .delete {
   padding: 10px 25px;
   font-size: 18px;
+  background-color: #bbab8cd9;
 }
 
 .link-list {
-  padding: 8px 150px;
+  border-radius: 15px;
+  text-align: center;
+  width: 150px;
+  margin: 0;
   font-size: 20px;
+  color: white;
+  text-decoration: none;
 }
 
-.delete, .link-list {
+.div-link-list {
+  border-radius: 15px;
+  transition: 1s ease;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  width: 500px;
+}
+
+.div-link-list p {
+  font-weight: bold;
+  font-size: 30px;
+  margin: 0;
+  padding-left: 10px;
+}
+
+.list-card-my-lists {
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.div-link-list:hover {
+  background-color: #8a7c5f;
+}
+
+.delete,
+.link-list {
   text-decoration: none;
-  background-color: #bbab8cd9;
   color: white;
   font-weight: 500;
   transition: 1s ease;
@@ -232,8 +288,9 @@ body {
     0 0 0.2em rgba(0, 0, 0, 0.282);
 }
 
-.delete:hover, .link-list:hover {
-  background-color: #8a7c5f;
+.delete:hover {
+  background-color: #FD1015;
+  color: black;
 }
 
 .btn-see-more,
@@ -259,7 +316,8 @@ body {
 }
 
 .text-list-new-movie,
-.list-card {
+.list-card,
+.div-link-list {
   background-color: rgba(255, 255, 255, 0.264);
 }
 
@@ -268,11 +326,31 @@ body {
 }
 
 .list-card {
+  margin-bottom: 10px;
   text-align: center;
+  align-items: center;
   border-radius: 15px;
 }
 
+.btn-trash-list {
+  font-size: 20px;
+  transition: 1s ease;
+  color: #1EDD88;
+  padding-right: 10px;
+  padding-top: 8px;
+}
+
+.btn-trash-list:hover {
+  text-shadow: 1px 1px 5px rgb(255, 255, 255);
+}
+
+.btn-trash-list:hover,
+.btn-trash-list:hover+i {
+  color: #FD1015;
+}
+
 .list-card h2 {
+  margin: 0;
   padding: 15px;
   padding-bottom: 22px;
 }
@@ -292,4 +370,24 @@ body {
 .grid-item {
   background-color: grey;
   width: 250px;
+}
+
+.g-3,
+.gy-3 {
+  --bs-gutter-y: 0;
+  --bs-gutter-x: 0;
+}
+
+.title-bookmarks {
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+.overflow-ellipsis {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.show-delete {
+  padding-top: 10px;
 }
