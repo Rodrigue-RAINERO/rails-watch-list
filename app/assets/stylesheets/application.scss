@@ -150,12 +150,16 @@ body {
 .big-box-lists-movie {
   color: rgb(255, 255, 255);
   width: 550px;
-  height: 835px;
+  height: auto;
   margin-top: 50px;
   background-color: #ffffff0e;
   backdrop-filter: blur(5px);
   padding: 30px;
   border-radius: 15px;
+}
+
+.big-box-new-movie-reate {
+  margin-top: 175px;
 }
 
 .big-box-new-movie-reate-list {
@@ -182,7 +186,6 @@ body {
   padding-bottom: 15px;
 }
 
-.big-box-new-movie-reate,
 .big-box-edit-movie,
 .big-box-lists-movie,
 .big-box-list-movie {
@@ -401,4 +404,11 @@ body {
 
 .show-delete {
   padding-top: 10px;
+}
+
+#overview-counter {
+  color: white;
+  position: absolute;
+  bottom: 250px;
+  right: 30px;
 }

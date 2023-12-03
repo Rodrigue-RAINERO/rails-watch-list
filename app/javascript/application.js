@@ -4,6 +4,9 @@ import "controllers"
 import 'bootstrap';
 import "@popperjs/core"
 
-// application.js
+// app/assets/javascripts/application.js
+
+//= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require turbo-rails
